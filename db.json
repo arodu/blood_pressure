@@ -1,3 +1,12 @@
 {
-  "measures": []
+  "measures": [
+    {
+      "name": "adalberto",
+      "sys": 18,
+      "dia": 8,
+      "pul": 123,
+      "media": 11,
+      "id": 1
+    }
+  ]
 }

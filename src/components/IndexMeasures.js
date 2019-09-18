@@ -1,9 +1,11 @@
 import React from 'react'
 
-const IndexMeasures = () => {
+const IndexMeasures = ({match}) => {
+  let name = match.params.name
+
   return (
     <React.Fragment>
-        <h2 className="text-center">Medidas</h2>
+        <h2 className="text-center">Medidas: <strong>{name}</strong></h2>
         <table className="table table-striped table-hover">
             <thead className="bg-success table-dark">
               <tr>

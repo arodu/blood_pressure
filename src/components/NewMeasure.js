@@ -4,9 +4,9 @@ import {createMeasureAction} from '../actions/measuresActions'
 import {useDispatch} from 'react-redux'
 
 
-const NewMeasure = () => {
-
-  const [name, setName] = useState('')
+const NewMeasure = ({match}) => {
+  
+  const [name, setName] = useState( match.params.name )
   const [sys, setSys] = useState('')
   const [dia, setDia] = useState('')
   const [pul, setPul] = useState('')
