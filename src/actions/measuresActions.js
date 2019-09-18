@@ -10,7 +10,7 @@ export function createMeasureAction(measure){
   return (dispatch) => {
     dispatch( newMeasure() )
 
-    clientAxios.post('/measuwwsres/', measure)
+    clientAxios.post('/measures', measure)
       .then(response => {
         //console.log(response)
         dispatch( newMeasureSuccess(measure) )

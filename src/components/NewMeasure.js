@@ -84,6 +84,7 @@ const NewMeasure = () => {
                                   placeholder="Sistólica"
                                   required={true}
                                   value={sys}
+                                  min={0}
                                   onChange={e => setSys(e.target.value)}
                                 />
                               </div>
@@ -102,6 +103,7 @@ const NewMeasure = () => {
                                     placeholder="Diastólica"
                                     required={true}
                                     value={dia}
+                                    min={0}
                                     onChange={e => setDia(e.target.value)}
                                 />
                               </div>
@@ -119,6 +121,7 @@ const NewMeasure = () => {
                                     className="form-control"
                                     placeholder="Pulsaciones"
                                     value={pul}
+                                    min={0}
                                     onChange={e => setPul(e.target.value)}
                                 />
                               </div>

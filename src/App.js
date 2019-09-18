@@ -23,7 +23,7 @@ function App() {
 
             <Route exact path="/measure/new/" component={NewMeasure} />
             <Route exact path="/measure/new/:name" component={NewMeasure} />
-            
+
             <Route exact path="/measure/edit/:id" component={EditMeasure} />
           </Switch>
         </div>
