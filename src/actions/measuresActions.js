@@ -24,15 +24,15 @@ export function createMeasureAction(measure){
 }
 
 export const newMeasure = () => ({
- type: ADD_MEASURE
+  type: ADD_MEASURE
 })
 
 export const newMeasureSuccess = (measure) => ({
- type: ADD_MEASURE_SUCCESS,
- payload: measure
+  type: ADD_MEASURE_SUCCESS,
+  payload: measure
 })
 
 export const newMeasureFailed = (error) => ({
- type: ADD_MEASURE_FAILED,
- payload: error
+  type: ADD_MEASURE_FAILED,
+  payload: error
 })

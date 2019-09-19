@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react'
 import {createMeasureAction} from '../actions/measuresActions'
 import {useDispatch} from 'react-redux'
 
-
 const NewMeasure = ({match}) => {
-  
+
   const [name, setName] = useState( match.params.name )
   const [sys, setSys] = useState('')
   const [dia, setDia] = useState('')
@@ -27,12 +26,11 @@ const NewMeasure = ({match}) => {
   const submitNewMeasure = (e) => {
     e.preventDefault()
 
-
     // validation
     if( name.trim() === '' || sys.trim() === '' || dia.trim() === '' || pul.trim() === ''){
-        console.log("Error de validacion")
-        return
-      }
+      console.log("Error de validacion")
+      return
+    }
 
     addMeasure({
       name: name,
