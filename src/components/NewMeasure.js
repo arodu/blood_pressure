@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import {createMeasureAction} from '../actions/measuresActions'
 import {useDispatch} from 'react-redux'
+import {initValidation, validationSuccess, validationFailed} from '../actions/validationAction'
 
 const NewMeasure = ({match}) => {
 
@@ -26,11 +27,14 @@ const NewMeasure = ({match}) => {
   const submitNewMeasure = (e) => {
     e.preventDefault()
 
+    distpach( initValidation() )
     // validation
     if( name.trim() === '' || sys.trim() === '' || dia.trim() === '' || pul.trim() === ''){
-      console.log("Error de validacion")
+      distpach( validationFailed() )
       return
     }
+
+    distpach( validationSuccess() )
 
     addMeasure({
       name: name,
