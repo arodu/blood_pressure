@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 import {createMeasureAction} from '../actions/measuresActions'
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {initValidation, validationSuccess, validationFailed} from '../actions/validationAction'
 
-const NewMeasure = ({match}) => {
+const NewMeasure = ({match, history}) => {
 
   const [name, setName] = useState( match.params.name )
   const [sys, setSys] = useState('')
@@ -14,6 +14,8 @@ const NewMeasure = ({match}) => {
 
   const distpach = useDispatch();
   const addMeasure = (measure) => distpach( createMeasureAction(measure) )
+
+  const error = useSelector((state) => state.error.error)
 
   useEffect(() => {
     if(sys !== '' && dia !== ''){
@@ -44,6 +46,8 @@ const NewMeasure = ({match}) => {
       media: parseInt(media)
     })
 
+    history.push('/')
+
   }
 
   return (
@@ -53,6 +57,13 @@ const NewMeasure = ({match}) => {
               <div className="card rounded-0">
                   <div className="card-body">
                       <h2 className="text-center mb-4 font-weight-bold ">Nueva Medida</h2>
+
+                      {
+                        error
+                        ? <div className="alert alert-danger rounded-0">Ha ocurrido un error validando los datos</div>
+                        : null
+                      }
+
                       <form onSubmit={submitNewMeasure}>
 
                           <div className="form-group">
