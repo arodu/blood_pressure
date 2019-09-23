@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
-import {createMeasureAction} from '../actions/measuresActions'
+import {createRecordAction} from '../actions/recordsActions'
 import {useDispatch, useSelector} from 'react-redux'
 import {initValidation, validationSuccess, validationFailed} from '../actions/validationAction'
 
-const NewMeasure = ({match, history}) => {
+const NewRecord = ({match, history}) => {
 
   const [name, setName] = useState( match.params.name )
   const [sys, setSys] = useState('')
@@ -13,7 +13,7 @@ const NewMeasure = ({match, history}) => {
   const [media, setmedia] = useState('')
 
   const distpach = useDispatch();
-  const addMeasure = (measure) => distpach( createMeasureAction(measure) )
+  const addRecord = (record) => distpach( createRecordAction(record) )
 
   const error = useSelector((state) => state.error.error)
 
@@ -26,7 +26,7 @@ const NewMeasure = ({match, history}) => {
     }
   }, [dia, sys]);
 
-  const submitNewMeasure = (e) => {
+  const submitNewRecord = (e) => {
     e.preventDefault()
 
     distpach( initValidation() )
@@ -38,7 +38,7 @@ const NewMeasure = ({match, history}) => {
 
     distpach( validationSuccess() )
 
-    addMeasure({
+    addRecord({
       name: name,
       sys: parseInt(sys),
       dia: parseInt(dia),
@@ -64,7 +64,7 @@ const NewMeasure = ({match, history}) => {
                         : null
                       }
 
-                      <form onSubmit={submitNewMeasure}>
+                      <form onSubmit={submitNewRecord}>
 
                           <div className="form-group">
                               <div className="input-group mb-3">
@@ -182,4 +182,4 @@ const NewMeasure = ({match, history}) => {
   )
 }
 
-export default NewMeasure;
+export default NewRecord;

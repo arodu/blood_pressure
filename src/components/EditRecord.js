@@ -1,10 +1,10 @@
 import React from 'react'
 
-const EditMeasure = () => {
+const EditRecord = () => {
 
   return (
     <p>Editar...</p>
   )
 }
 
-export default EditMeasure;
+export default EditRecord;

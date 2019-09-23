@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux'
-import measuresReducer from './measuresReducer'
+import recordsReducer from './recordsReducer'
 import validationReducer from './validationReducer'
 
 
 export default combineReducers({
-  measures: measuresReducer,
+  records: recordsReducer,
   error: validationReducer,
 })

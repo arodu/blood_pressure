@@ -1,12 +1,12 @@
 import {
-  ADD_MEASURE,
-  ADD_MEASURE_SUCCESS,
-  ADD_MEASURE_FAILED,
+  ADD_RECORD,
+  ADD_RECORD_SUCCESS,
+  ADD_RECORD_FAILED,
   ADD_NAME
 } from '../types'
 
 const initialState = {
-  measures: [],
+  records: [],
   name: '',
   error: false,
   loading: false,
@@ -14,21 +14,21 @@ const initialState = {
 
 export default function(state = initialState, action){
   switch (action.type) {
-    case ADD_MEASURE:
+    case ADD_RECORD:
         return {
           ...state,
           error: false
         };
 
-    case ADD_MEASURE_SUCCESS:
+    case ADD_RECORD_SUCCESS:
         return {
           ...state,
           error: false,
-          measures: [...state.measures, action.payload],
+          records: [...state.records, action.payload],
           name: action.payload.name,
         }
 
-    case ADD_MEASURE_FAILED:
+    case ADD_RECORD_FAILED:
         return {
           ...state,
           error: true,

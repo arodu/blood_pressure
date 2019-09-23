@@ -1,27 +1,28 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {useSelector} from 'react-redux'
+//import { Link } from 'react-router-dom'
+import {Navbar, Nav, Form, FormControl, Button, Container} from 'react-bootstrap'
 
 const Header = () => {
 
+    const state_name = useSelector((state) => state.records.name)
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-      <div className="container">
-        <Link to={'/'} className="navbar-brand">
-          Presión Arterial
-        </Link>
-
-        <div className="ml-auto">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={'/measure/new'} className="btn btn-secondary rounded-0">
-                Nueva Medida
-              </Link>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
+      <Navbar bg="success" variant="dark" expand="md">
+        <Container>
+          <Navbar.Brand href={ `/${state_name}` }>Registros Presión Arterial</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse>
+            <Nav className="mr-auto">
+              <Nav.Link href={ `/record/new/${state_name}`}>Agregar Registro</Nav.Link>
+            </Nav>
+            <Form inline>
+              <FormControl type="text" placeholder="Search" className="mr-sm-2 text-light" />
+              <Button variant="outline-light" className="rounded-0">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
   )
 }
 
