@@ -38,12 +38,14 @@ const NewRecord = ({match, history}) => {
 
     distpach( validationSuccess() )
 
+    let d = new Date()
     addRecord({
       name: name,
       sys: parseInt(sys),
       dia: parseInt(dia),
       pul: parseInt(pul),
-      media: parseInt(media)
+      media: parseInt(media),
+      date: d.toISOString()
     })
 
     history.push('/')
